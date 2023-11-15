@@ -68,7 +68,7 @@ const Scraps = ({getMenutype}) => {
           {scraps.map(scrap=>
             <tr>
               <td>{getMenutype(String(scrap.menu_link||scrap.menu||scrap.link))}</td>
-              <td><div className='ellipsis1'>{scrap.title}</div> </td>         
+              <td><div className='activitypage_contentstitle ellipsis1'>{scrap.title}</div> </td>         
               <td><Button variant='outline-dark' size='sm' onClick={()=>{
                 if((scrap.menu_link && scrap.menu_link.length>1)||scrap.link){
                   window.location.href=scrap.menu_link||scrap.link

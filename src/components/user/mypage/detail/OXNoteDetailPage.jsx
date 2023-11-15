@@ -5,7 +5,7 @@ function OXNoteDetailPage() {
   const [note,setNote] =useState([]);
 
   const getNote=async()=>{
-    const res = await axios.get(`/mypage/oxnote.list?problem_id=${sessionStorage.getItem('problem_id')}`);
+    const res = await axios.get(`/mypage/oxnotedetail.list?user_id=${sessionStorage.getItem('user_id')}`);
     setNote(res.data.list);
   }
 
@@ -22,7 +22,9 @@ function OXNoteDetailPage() {
           <div className='allmypage_contents'>
           {note.map(n=>
             <>
-              
+              <div className='oxnotedetailpage_contents'>
+                {n.problem_id}
+              </div>
             </>
           )}
           </div>

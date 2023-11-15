@@ -27,7 +27,9 @@
 .oxnotepage_pluslist{margin-top: 15px; display: flex; justify-content: center;}
 .oxnotepage_btnquiz{margin-bottom: 5px;}
 .oxnote_buttonpage {margin:0 auto; width: 90%; height: 100px; border: 1px solid #dde7f0; border-radius: 10px; display: flex; align-items: center; justify-content: center;}
-.oxnotepage_detail_div:hover {font-weight: 800;}
+/* OXNoteDetailPage */
+.oxnotepage_detail_div{color:#333333; font-weight: 700;}
+.oxnotepage_detail_div:hover {color:#7F3ACD;}
 
 /* MyListPage */
 .mylistpage_wrap{width: 100%;}
@@ -71,3 +73,4 @@
 .MyActivityPageex_table{margin-top: 3%;}
 .scrapspage_dropdown{width: 100%; margin: 0 auto; padding-top: 4%;}
 .myactivitiypage_subpage{width: 90%; margin: 0 auto;}
+.activitypage_contentstitle{font-weight: 550;}

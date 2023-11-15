@@ -44,7 +44,7 @@ const Projects = () => {
         <tbody>
           {projects.map(project=>
             <tr>
-              <td><div className='ellipsis1'>{project.title}</div> </td>
+              <td><div className='activitypage_contentstitle ellipsis1'>{project.title}</div> </td>
               <td>{project.created_at === project.updated_at ?
               project.date:project.newdate}</td>
               <td><Button variant='outline-dark' size='sm'>해당 게시글로 이동</Button></td>

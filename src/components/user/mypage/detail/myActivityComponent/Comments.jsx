@@ -74,7 +74,7 @@ const Comments = ({getMenutype}) => {
         {comments.map(comment=>
             <tr>         
               <td>{getMenutype(String(comment.menu))}</td>            
-              <td><div className='ellipsis1'>{comment.content}</div> </td>
+              <td><div className='activitypage_contentstitle ellipsis1'>{comment.content}</div> </td>
               <td><Button variant='outline-dark' size='sm'>더보기</Button></td>
               <td>{comment.created_at === comment.updated_at ?
               comment.date:comment.newdate}</td>
