@@ -44,12 +44,12 @@ function BookMarkQuizList() {
   useEffect(()=>{
     getBookmarks();
   },[])
-  const onChangePage =(page)=>{
-    navigator(`${path}?user_id=${sessionStorage.getItem('user_id')}&grade_id=${gradeid}&title=${title}&tagname=${tagname}&problemid=${problemid}&page=${page}&size=${size}`);
-  }
   useEffect(()=>{
     getBookmarks();
   },[location])
+  const onChangePage =(page)=>{
+    navigator(`${path}?user_id=${sessionStorage.getItem('user_id')}&grade_id=${gradeid}&title=${title}&tagname=${tagname}&problemid=${problemid}&page=${page}&size=${size}`);
+  }
   const getGradeType=(gradeid)=>{
     switch (gradeid) {
       case '':
