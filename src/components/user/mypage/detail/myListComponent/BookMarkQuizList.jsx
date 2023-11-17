@@ -71,74 +71,74 @@ function BookMarkQuizList() {
     }
   }
   return (
-    <div>
-    <div>  
-    <div className='d-flex'>
-    <Dropdown onSelect={handleSelectGrade} >
-      <Dropdown.Toggle variant="success">
-        {getGradeType(String(gradeid))}
-      </Dropdown.Toggle>
+    <div className='allmypage_wrap'>
+      <div>  
+      <div className='mt-5 d-flex'>
+      <Dropdown onSelect={handleSelectGrade} >
+        <Dropdown.Toggle variant="success">
+          {getGradeType(String(gradeid))}
+        </Dropdown.Toggle>
 
-      <Dropdown.Menu>
-        <Dropdown.Item eventKey="">전체Lv</Dropdown.Item>
-        <Dropdown.Item eventKey="1">Lv.0</Dropdown.Item>
-        <Dropdown.Item eventKey="2">Lv.1</Dropdown.Item>
-        <Dropdown.Item eventKey="3">Lv.2</Dropdown.Item>
-        <Dropdown.Item eventKey="4">Lv.3</Dropdown.Item>
-        <Dropdown.Item eventKey="5">Lv.4</Dropdown.Item>
-        <Dropdown.Item eventKey="6">Lv.5</Dropdown.Item>
-      </Dropdown.Menu>
-      </Dropdown>
-      <InputGroup className="admin_Pinput_width">
-        <InputGroup.Text className='admin_inputtext_width' >문제번호</InputGroup.Text>
-        <Form.Control type="number" min={1} value={problemid} onChange={(e)=>setProblemid(e.target.value)}/>
-      </InputGroup>
+        <Dropdown.Menu>
+          <Dropdown.Item eventKey="">전체Lv</Dropdown.Item>
+          <Dropdown.Item eventKey="1">Lv.0</Dropdown.Item>
+          <Dropdown.Item eventKey="2">Lv.1</Dropdown.Item>
+          <Dropdown.Item eventKey="3">Lv.2</Dropdown.Item>
+          <Dropdown.Item eventKey="4">Lv.3</Dropdown.Item>
+          <Dropdown.Item eventKey="5">Lv.4</Dropdown.Item>
+          <Dropdown.Item eventKey="6">Lv.5</Dropdown.Item>
+        </Dropdown.Menu>
+        </Dropdown>
+        <InputGroup className="admin_Pinput_width ms-2">
+          <InputGroup.Text className='admin_inputtext_width' >문제번호</InputGroup.Text>
+          <Form.Control type="number" min={1} value={problemid} onChange={(e)=>setProblemid(e.target.value)}/>
+        </InputGroup>
 
-      <InputGroup className="admin_Pinput_width">
-        <InputGroup.Text className="admin_inputtext_width">문제제목</InputGroup.Text>
-        <Form.Control value={title} onChange={(e)=>setTitle(e.target.value)} />
-      </InputGroup>
-      <InputGroup className="admin_Pinput_width">
-        <InputGroup.Text className="admin_inputtext_width">문제유형</InputGroup.Text>
-        <Form.Control value={tagname}  onChange={(e)=>setTagname(e.target.value)}/>
-      </InputGroup >
-      <div >
-        <Button style={{width:'100px'}} onClick={onClickSearch}>검색하기</Button>
-      </div>     
-    </div>
-    
-    <Table className='text-center'>
-      <thead>
-        <tr>
-          <th>문제난이도</th>
-          <th>문제번호</th>
-          <th>문제제목</th>
-          <th>문제유형</th>
-        </tr>
-      </thead>
-      <tbody>
-        {bookmarks.map(bookmark=>
+        <InputGroup className="admin_Pinput_width ms-2">
+          <InputGroup.Text className="admin_inputtext_width">문제제목</InputGroup.Text>
+          <Form.Control value={title} onChange={(e)=>setTitle(e.target.value)} />
+        </InputGroup>
+        <InputGroup className="admin_Pinput_width ms-2">
+          <InputGroup.Text className="admin_inputtext_width">문제유형</InputGroup.Text>
+          <Form.Control value={tagname}  onChange={(e)=>setTagname(e.target.value)}/>
+        </InputGroup >
+        <div >
+          <Button className='ms-2' style={{width:'100px'}} onClick={onClickSearch}>검색하기</Button>
+        </div>     
+      </div>
+      
+      <Table className='text-center mt-5'>
+        <thead>
           <tr>
-            <td>{bookmark.grade}</td>
-            <td>{bookmark.problem_id}</td>
-            <td>{bookmark.title}</td>
-            <td>{bookmark.tag_names}</td>
-          </tr>      
-        )}
-      </tbody>
-    </Table>
-    {total >size &&
-        <Pagination
-          activePage={page}
-          itemsCountPerPage={size}
-          totalItemsCount={total}
-          pageRangeDisplayed={10}
-          prevPageText={"‹"}
-          nextPageText={"›"}
-          onChange={ onChangePage }/>
-      }    
+            <th>문제난이도</th>
+            <th>문제번호</th>
+            <th>문제제목</th>
+            <th>문제유형</th>
+          </tr>
+        </thead>
+        <tbody>
+          {bookmarks.map(bookmark=>
+            <tr>
+              <td>{bookmark.grade}</td>
+              <td>{bookmark.problem_id}</td>
+              <td>{bookmark.title}</td>
+              <td>{bookmark.tag_names}</td>
+            </tr>      
+          )}
+        </tbody>
+      </Table>
+      {total >size &&
+          <Pagination
+            activePage={page}
+            itemsCountPerPage={size}
+            totalItemsCount={total}
+            pageRangeDisplayed={10}
+            prevPageText={"‹"}
+            nextPageText={"›"}
+            onChange={ onChangePage }/>
+        }    
+    </div>
   </div>
-</div>
   )
 }
 

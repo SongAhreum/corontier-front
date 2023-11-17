@@ -43,7 +43,7 @@ const UserUpdatePage = () => {
     e.preventDefault();
     setBox({
       show: true,
-      message: '정보를수정하시겠어요?',
+      message: '정보를 수정하시겠습니까?',
       action: async () => {
         const res = await axios.post('/users/update', {user_id,email,nickname,profile_image});
         alert(res.data)

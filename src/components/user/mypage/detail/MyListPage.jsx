@@ -8,24 +8,29 @@ const MyListPage = () => {
 
 
   return (
-    <div className='contents'>
-      <Nav fill className="mt-5" variant="tabs" defaultActiveKey="0">
-        <Nav.Item>
-          <Nav.Link eventKey="0" onClick={() => setTab(0)}>
-            내가푼문제
-          </Nav.Link>
-        </Nav.Item>
-        <Nav.Item>
-          <Nav.Link eventKey="1" onClick={() => setTab(1)}>
-            북마크한문제
-          </Nav.Link>
-        </Nav.Item>
-      </Nav>
-      <div>
-        </div> 
-      {tab === 0 && <QuizList />}
-      {tab === 1 && <BookMarkQuizList/>}    
-    </div>
+    <div className='allmypage_wrap'>
+      <div className='allmypage_title'>
+          <p>My List</p>
+      </div>
+      <div className='allmypage_contents'>
+        <Nav fill className="mt-5" variant="tabs" defaultActiveKey="0">
+          <Nav.Item>
+            <Nav.Link eventKey="0" onClick={() => setTab(0)}>
+              내가푼문제
+            </Nav.Link>
+          </Nav.Item>
+          <Nav.Item>
+            <Nav.Link eventKey="1" onClick={() => setTab(1)}>
+              북마크한문제
+            </Nav.Link>
+          </Nav.Item>
+        </Nav>
+        <div>
+          </div> 
+        {tab === 0 && <QuizList />}
+        {tab === 1 && <BookMarkQuizList/>}    
+      </div>
+    </div> 
   )
 }
 
