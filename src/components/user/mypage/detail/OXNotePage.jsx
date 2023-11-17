@@ -77,7 +77,7 @@ const OXNotePage = () => {
         <div className='allmypage_title'>
           <p>오답노트</p>
         </div>
-        <div className='allmypage_contents'>
+        <div >
           <Table>
             <thead>
               <tr>
