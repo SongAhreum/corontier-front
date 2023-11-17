@@ -82,7 +82,7 @@ const Posts = ({getMenutype}) => {
           {posts.map(post=>
             <tr>
               <td>{getMenutype(String(post.menu))}</td>
-              <td><div className='ellipsis1'>{post.title}</div> </td>
+              <td><div className='activitypage_contentstitle ellipsis1'>{post.title}</div> </td>
               <td>{post.created_at === post.updated_at ?
               post.date:post.newdate}</td>
               <td><Button variant='outline-dark' size='sm'>해당 게시글로 이동</Button></td>
