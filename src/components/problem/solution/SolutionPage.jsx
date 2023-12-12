@@ -1,7 +1,7 @@
-import React, { useState, useCallback, useContext } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+
+import React, { useState, useCallback, useContext, useEffect } from 'react';
+import { useParams, useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
-import { useEffect } from 'react';
 
 import CodeMirror from '@uiw/react-codemirror';
 import { javascript } from '@codemirror/lang-javascript';
@@ -13,6 +13,7 @@ import { vscodeDark } from '@uiw/codemirror-themes-all';
 import { Row, Col, Container, Button, Spinner } from 'react-bootstrap';
 import { AiOutlineLock, AiOutlineUnlock } from 'react-icons/ai';
 import { RiBookmark3Line, RiBookmark3Fill } from 'react-icons/ri';
+import { FaArrowLeft } from "react-icons/fa";
 
 import Question from '../Question';
 import { BoxContext } from '../../BoxContext';
@@ -160,9 +161,9 @@ const SolutionPage = () => {
             await axios.post("/problem/insert/solution", { problem_id, content: value, complete, language, user_id: sessionStorage.getItem("user_id") });
             setBox({
                 show: true,
-                message: "풀이가 등록되었습니다.\n풀이페이지로 이동하시겠습니까?",
+                message: "풀이가 등록되었습니다.\nMyList로 이동하시겠습니까?",
                 action: () => {
-                    navi(`/solution/${sessionStorage.getItem("user_id")}`);
+                    navi(`/user/mypage/mylist`);
                 }
             });
         } else {
@@ -202,10 +203,14 @@ const SolutionPage = () => {
 
     return (
         <div className='solution_wrap'>
-            <Button href="/problem/main"></Button>
             {prob_id === 0 && (
-                <div className='m-5'>
+                <div className='my-5'>
                     <Container>
+                        <div className='px-4 border-bottom border-dark-subtle' style={{ backgroundColor: "#1e1e1e", color: "white", fontSize: "20px" }}>
+                            <Row>
+                                <Col><Link to="/problem/main" style={{color:"grey"}}><FaArrowLeft className='pb-1' /> Problem Main</Link></Col>
+                            </Row>
+                        </div>
                         <div className='py-2 px-4 border-bottom border-dark-subtle' style={{ backgroundColor: "#1e1e1e", color: "white", fontSize: "30px" }}>
                             <Row>
                                 <Col>
@@ -225,7 +230,7 @@ const SolutionPage = () => {
                             </Row>
                         </div>
                         <Row>
-                            <Col xs={6} sm={6} md={6} className='border-end border-dark-subtle scrollbar' style={{ backgroundColor: "#1e1e1e", color: "white", marginLeft: "12px", overflow: "auto", height: "751px" }}>
+                            <Col className='border-end border-dark-subtle scrollbar' style={{ backgroundColor: "#1e1e1e", color: "white", marginLeft: "12px", overflow: "auto", height: "751px" }}>
                                 <div className='my-3 mx-3'>
                                     <p>Description</p><br />
                                     <p style={{ fontSize: "16px" }} dangerouslySetInnerHTML={{ __html: content }} />
@@ -238,7 +243,7 @@ const SolutionPage = () => {
                                     <br />
                                 </div>
                             </Col>
-                            <Col>
+                            <Col xs={6} sm={6} md={6}>
                                 <Row>
                                     <Col className='ps-0'>
                                         <div className='pt-2 px-3 border-dark-subtle text-end' style={{ backgroundColor: "#1e1e1e", color: "white" }}>

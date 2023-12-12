@@ -3,11 +3,14 @@ import { Button, Dropdown, Table,Nav } from 'react-bootstrap'
 import QuizList from './myListComponent/QuizList'
 import BookMarkQuizList from './myListComponent/BookMarkQuizList'
 
+import SolutionList from '../../../problem/solution/SolutionList'
+
 const MyListPage = () => {
   let [tab, setTab] = useState(0)
 
 
   return (
+
     <div className='contents'>
       <Nav fill className="mt-5" variant="tabs" defaultActiveKey="0">
         <Nav.Item>
@@ -21,9 +24,10 @@ const MyListPage = () => {
           </Nav.Link>
         </Nav.Item>
       </Nav>
+
       <div>
         </div> 
-      {tab === 0 && <QuizList />}
+      {tab === 0 && <SolutionList />}
       {tab === 1 && <BookMarkQuizList/>}    
     </div>
   )

@@ -1,6 +1,7 @@
 import React from 'react'
 
 const FooterPage = () => {
+
     return (
         <footer>
             <div className="footer_nav">

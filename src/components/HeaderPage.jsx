@@ -1,6 +1,6 @@
 import React from 'react'
 import { Container, Nav, Navbar, NavDropdown, NavLink } from 'react-bootstrap';
-import { useNavigate} from 'react-router-dom'
+import { useLocation, useNavigate, useParams} from 'react-router-dom'
 
 
 const HeaderPage = () => {
@@ -12,9 +12,8 @@ const HeaderPage = () => {
             sessionStorage.clear();
             navi("/");
         }
-     
-       
     }
+
     return (
         <Navbar className="navbar">
             <Container>
@@ -23,7 +22,7 @@ const HeaderPage = () => {
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto">
                         <NavLink href="/problem/main">Problems</NavLink>
-                        <NavLink href="/project/projectmain">Projects</NavLink>
+                        <NavLink href="/project/main">Projects</NavLink>
                         <NavDropdown title="Community" id="basic-nav-dropdown">
                             <NavDropdown.Item href="/community/notice/NoticePage">공지사항</NavDropdown.Item>
                             <NavDropdown.Item href="/community/lounge/loungepage">라운지</NavDropdown.Item>
@@ -40,22 +39,25 @@ const HeaderPage = () => {
                     <Nav>
                         {/** 로그인 case별 분기 */}
                         {   /** admin일때 */
-                            sessionStorage.getItem('user_id') === 'admin' && 
-                            <NavLink href="#">adminpage</NavLink>
+                            sessionStorage.getItem('user_id') === "21" && 
+                            <>
+                            <NavLink href="/admin/adminpage">adminpage</NavLink>
+                            <NavLink onClick={onLogout} href="/user/signin">Logout</NavLink>
+                            </>
                         }
                         {   /** admin이외 user로그인 */
-                            sessionStorage.getItem('user_id') && sessionStorage.getItem('user_id') !== 'admin' && 
+                            sessionStorage.getItem('user_id') && sessionStorage.getItem('user_id') !== "21" && 
                             <>
-                            <NavLink href="/user/mypage">mypage(user)</NavLink>
-                            <NavLink onClick={onLogout} href="/user/signin">logout (user)</NavLink>
+                            <NavLink href="/user/mypage">Mypage</NavLink>
+                            <NavLink onClick={onLogout} href="/user/signin">Logout</NavLink>
                             </>
                         }
                         {
                             /** 비로그인 일때 */
                             !sessionStorage.getItem('user_id') &&
                             <>
-                            <NavLink href="/user/signup">Sign up(not user)</NavLink>
-                            <NavLink  href="/user/signin">Sign in(not user)</NavLink>
+                            <NavLink href="/user/signup">Sign up</NavLink>
+                            <NavLink  href="/user/signin">Sign in</NavLink>
                             </>
                         }
                         
